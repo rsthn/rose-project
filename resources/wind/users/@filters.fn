@@ -1,0 +1,24 @@
+
+(shield::validate tmp
+	(shield::field term
+		required: false
+		pattern: name
+		set:0: `{escape '%{formData.term}%'}`
+		set:1: `AND (x.name LIKE {formData.term} OR x.username LIKE {formData.term})`
+	)
+)
+
+(shield::validate
+	(shield::field offset
+		default: 0
+		pattern: integer
+	)
+
+	(shield::field count
+		default: 25
+		pattern: integer
+		max-value: 100
+	)
+)
+
+(set filters (join ' ' (values (tmp))))
