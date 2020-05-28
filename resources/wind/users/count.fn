@@ -1,0 +1,11 @@
+(sentinel::privilege-required admin)
+
+(call '@filters')
+
+(return (&
+	count: (int (db::scalar `
+		SELECT COUNT(*)
+		FROM ##users x
+		WHERE x.is_active=1 {filters}
+	`))
+))

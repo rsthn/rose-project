@@ -1,0 +1,16 @@
+(shield::validate
+	(shield::field username
+		required: true
+		pattern: identifier
+		min-length: 4
+	)
+
+	(shield::field password
+		required: true
+		min-length: 8
+	)
+)
+
+(sentinel::login (username) (password))
+
+(&)
