@@ -11,6 +11,8 @@
 	)
 )
 
+(session::open)
+
 (sentinel::login (username) (password))
 
 (&)
