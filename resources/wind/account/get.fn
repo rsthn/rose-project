@@ -1,6 +1,6 @@
 (sentinel::auth-required)
 
-(set u (Session.currentUser))
+(set u (session.user))
 
 (return (# (&
 	user_id: (u.user_id)

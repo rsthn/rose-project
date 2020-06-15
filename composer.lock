@@ -8,20 +8,20 @@
     "packages": [
         {
             "name": "rsthn/rose-core",
-            "version": "3.0.12",
+            "version": "3.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rsthn/rose-core.git",
-                "reference": "6481df7279f67b7b507e343a48721eb0b7be3cb7"
+                "reference": "d3c3bfe93df39151a34e9bada8bc448127bb7dc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rsthn/rose-core/zipball/6481df7279f67b7b507e343a48721eb0b7be3cb7",
-                "reference": "6481df7279f67b7b507e343a48721eb0b7be3cb7",
+                "url": "https://api.github.com/repos/rsthn/rose-core/zipball/d3c3bfe93df39151a34e9bada8bc448127bb7dc8",
+                "reference": "d3c3bfe93df39151a34e9bada8bc448127bb7dc8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.1.0"
             },
             "type": "library",
             "autoload": {
@@ -42,20 +42,20 @@
             ],
             "description": "Rose Framework - Core",
             "homepage": "https://github.com/rsthn/rose-core",
-            "time": "2020-05-29T05:48:04+00:00"
+            "time": "2020-06-07T03:22:53+00:00"
         },
         {
             "name": "rsthn/rose-ext-sentinel",
-            "version": "1.0.10",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rsthn/rose-ext-sentinel.git",
-                "reference": "e8b1234fcd8e6f2f12134f6a14e76a0756225f50"
+                "reference": "6848c9c2adecde78c2c2fbeadba87871343499ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rsthn/rose-ext-sentinel/zipball/e8b1234fcd8e6f2f12134f6a14e76a0756225f50",
-                "reference": "e8b1234fcd8e6f2f12134f6a14e76a0756225f50",
+                "url": "https://api.github.com/repos/rsthn/rose-ext-sentinel/zipball/6848c9c2adecde78c2c2fbeadba87871343499ad",
+                "reference": "6848c9c2adecde78c2c2fbeadba87871343499ad",
                 "shasum": ""
             },
             "require": {
@@ -81,20 +81,20 @@
                 }
             ],
             "description": "Sentinel Authentication (Wind)",
-            "time": "2020-05-29T01:25:58+00:00"
+            "time": "2020-06-04T09:05:40+00:00"
         },
         {
             "name": "rsthn/rose-ext-shield",
-            "version": "1.0.6",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rsthn/rose-ext-shield.git",
-                "reference": "d56ff1dd23d0412627522da57cd8e2f21eb9c36a"
+                "reference": "39d9d1f1033e8479b2580395b9b0272fec267d1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rsthn/rose-ext-shield/zipball/d56ff1dd23d0412627522da57cd8e2f21eb9c36a",
-                "reference": "d56ff1dd23d0412627522da57cd8e2f21eb9c36a",
+                "url": "https://api.github.com/repos/rsthn/rose-ext-shield/zipball/39d9d1f1033e8479b2580395b9b0272fec267d1e",
+                "reference": "39d9d1f1033e8479b2580395b9b0272fec267d1e",
                 "shasum": ""
             },
             "require": {
@@ -120,20 +120,20 @@
                 }
             ],
             "description": "Shield Validation Extension",
-            "time": "2020-05-29T01:18:44+00:00"
+            "time": "2020-06-08T21:28:16+00:00"
         },
         {
             "name": "rsthn/rose-ext-wind",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rsthn/rose-ext-wind.git",
-                "reference": "50f8e1a514f3d0bf13c4d9b88b35d59f7fe11c84"
+                "reference": "101291860c9afc3f6e53036e8dc0ec8039de73ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rsthn/rose-ext-wind/zipball/50f8e1a514f3d0bf13c4d9b88b35d59f7fe11c84",
-                "reference": "50f8e1a514f3d0bf13c4d9b88b35d59f7fe11c84",
+                "url": "https://api.github.com/repos/rsthn/rose-ext-wind/zipball/101291860c9afc3f6e53036e8dc0ec8039de73ca",
+                "reference": "101291860c9afc3f6e53036e8dc0ec8039de73ca",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 }
             ],
             "description": "Wind Web-Service Extension",
-            "time": "2020-05-29T05:49:32+00:00"
+            "time": "2020-06-03T08:23:00+00:00"
         },
         {
             "name": "rsthn/rose-extension-installer",

@@ -2,22 +2,33 @@
 
 (call '@filters')
 
-(return (db::table `
+(set list (db::table `
 	SELECT
 		x.user_id as id,
 		x.created,
 		x.is_authorized,
 		x.username,
 		x.name,
+		x.email,
 		GROUP_CONCAT(p.privilege_id) as privileges,
-		GROUP_CONCAT(p.name) as s_privileges
+		GROUP_CONCAT(p.name) as s_privileges,
+		last_login_0.s_value last_login_0
 
 	FROM ##users x
 	LEFT JOIN ##user_privileges upr ON upr.user_id=x.user_id
 	LEFT JOIN ##privileges p ON p.privilege_id=upr.privilege_id
+	{call 'lib.directives.join' user_id: 'x.user_id' type: 'last_login_0'}
 
 	WHERE x.is_active=1 {filters}
 
 	GROUP BY x.user_id
+	ORDER BY {sort} {order}
+
 	LIMIT {count} OFFSET {offset}
 `))
+
+(each i (list) (@
+	(set i.s_privileges (join ', ' (map j (split ',' (i.s_privileges)) (Strings.@enum.privileges.(j)) )))
+))
+
+(return (list))

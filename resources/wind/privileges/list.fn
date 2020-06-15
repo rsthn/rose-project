@@ -1,9 +1,14 @@
 (sentinel::privilege-required admin)
 
-(return (db::table `
+(set list (db::table `
 	SELECT
 		p.privilege_id as id,
 		p.name
 
 	FROM ##privileges p
+	ORDER BY p.privilege_id DESC
 `))
+
+(each i (list) (set i.name (Strings.@enum.privileges.(i.name))))
+
+(return (list))

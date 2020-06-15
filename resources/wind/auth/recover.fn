@@ -1,0 +1,41 @@
+(shield::validate
+	(shield::field email
+		required: true
+		pattern: email
+		check:email_nf: (isnotnull (db::scalar `SELECT user_id FROM ##users WHERE is_active=1 AND email={escape {formData.email}}`))
+	)
+
+	(shield::field npassword
+		required: true
+		min-length: 8
+		set: (sentinel::password (formData.npassword))
+	)
+
+	(shield::field rpassword
+		required: true
+		requires: npassword
+		min-length: 8
+		set: (sentinel::password (formData.rpassword))
+		check:rpassword: (eq (formData.rpassword) (formData.npassword))
+	)
+)
+
+(set x (db::row `SELECT user_id, name, username as email FROM ##users WHERE is_active=1 AND email={escape {email}}`))
+
+(set token (math::uuid))
+
+(call 'lib.directives.string' user_id: (x.user_id) type: 'auth_new_password_token' value: (token))
+(call 'lib.directives.string' user_id: (x.user_id) type: 'auth_new_password' value: (npassword))
+
+(set data (&
+	name: (x.name)
+	url: '(gateway.ep)?f=auth.confirm-password&token=(token)'
+))
+
+(mail::send
+	RCPT (x.email)
+	SUBJECT 'Password Recovery Confirmation'
+	BODY (expand (strings.@mail_recover) (data))
+)
+
+(&)

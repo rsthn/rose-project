@@ -3,14 +3,13 @@
 (shield::validate form
 
 	(shield::field created
-		set: (Now)
+		set: (datetime::now)
 	)
 
 	(shield::field username
 		required: true
 		pattern: identifier
 		min-length: 4
-		max-length: 128
 		check:username: (isnull (db::scalar `SELECT user_id FROM ##users WHERE username={escape {formData.username}}`))
 	)
 
@@ -24,6 +23,11 @@
 		required: true
 		pattern: name
 		min-length: 4
+	)
+
+	(shield::field email
+		required: false
+		pattern: email
 	)
 
 	(shield::field is_authorized

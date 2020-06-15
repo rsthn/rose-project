@@ -11,8 +11,15 @@
 	)
 )
 
+(sentinel::validate (username) (password))
+
 (session::open)
 
 (sentinel::login (username) (password))
 
-(&)
+(call 'lib.directives.string' user_id: (session.user.user_id) type: 'last_login_0' value: (datetime::now))
+
+(&
+	response (int 200)
+	session (session::id)
+)
