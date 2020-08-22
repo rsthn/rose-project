@@ -1,7 +1,0 @@
---*
-vendor/
-node_modules/
-.svn/
-*.tmp
-.cache/
-.wind.cache/
