@@ -12,9 +12,8 @@
 
 	(shield::field username
 		required: false
-		pattern: email
-		min-length: 8
-		max-length: 128
+		pattern: identifier
+		min-length: 4
 		check:username: (isnull (db::scalar `SELECT user_id FROM ##users WHERE user_id!={id} AND username={escape {formData.username}}`))
 	)
 

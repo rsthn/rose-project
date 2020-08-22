@@ -59,7 +59,8 @@ INSERT INTO x_user_privileges(user_id, privilege_id) VALUES (1, 777);
 /* ******************************************************************************************* */
 CREATE TABLE x_directives
 (
-	user_id int unsigned references x_users (user_id) on delete cascade,
+	user_id int unsigned not null,
+	constraint foreign key (user_id) references users (user_id) on delete cascade,
 
 	type varchar(32) not null, /* user_not_verified, user_blocked, auth_attempts, auth_new_password_token, auth_new_password, latest_login, last_login */
 	index n_type (type),
