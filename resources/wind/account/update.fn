@@ -14,6 +14,11 @@
 		max-length: 128
 		check:username: (isnull (db::scalar `SELECT user_id FROM ##users WHERE user_id!={session.user.user_id} AND username={escape {formData.username}}`))
 	)
+
+	(shield::field email
+		required: false
+		pattern: email
+	)
 )
 
 (db::update ##users `user_id={session.user.user_id}` (form))

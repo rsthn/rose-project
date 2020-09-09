@@ -62,14 +62,14 @@ CREATE TABLE x_directives
 	user_id int unsigned not null,
 	constraint foreign key (user_id) references users (user_id) on delete cascade,
 
-	type varchar(32) not null, /* user_not_verified, user_blocked, auth_attempts, auth_new_password_token, auth_new_password, latest_login, last_login */
+	type varchar(64) not null, /* user_not_verified, user_blocked, auth_attempts, auth_new_password_token, auth_new_password, latest_login, last_login */
 	index n_type (type),
 
 	primary key (type, user_id),
 
 	modified datetime,
 
-	s_value varchar(128) default '',
+	s_value varchar(256) default '',
 	i_value int default 0
 )
 ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1;

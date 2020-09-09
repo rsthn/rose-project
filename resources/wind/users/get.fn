@@ -29,7 +29,9 @@
 `))
 
 (each i (list) (@
-	(set i.s_privileges (join ', ' (map j (split ',' (i.s_privileges)) (Strings.@enum.privileges.(j)) )))
+	(set i.s_privileges (join ', ' (map j (split ',' (i.s_privileges)) (Strings.@enum.privileges.(j)))))
+	(set i.created (locale::datetime (i.created)))
+	(set i.last_login_0 (?? (locale::datetime (i.last_login_0)) 'N/A'))
 ))
 
 (return (list))
