@@ -1,0 +1,15 @@
+(sentinel::privilege-required admin)
+
+(return (db::table `
+	SELECT
+		x.user_id as id,
+		CONCAT(x.name, ' / ', x.username) AS name,
+		GROUP_CONCAT(p.privilege_id) as privileges
+
+	FROM ##users x
+	LEFT JOIN ##user_privileges upr ON upr.user_id=x.user_id
+	LEFT JOIN ##privileges p ON p.privilege_id=upr.privilege_id
+
+	WHERE x.is_active=1
+	GROUP BY x.user_id
+`))

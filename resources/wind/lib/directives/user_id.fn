@@ -1,4 +1,4 @@
-(? (not (has (args) type value))
+(? (not (contains (args) type value))
 	(error `Parameter missing: {err}`))
 
 (db::scalar `SELECT user_id FROM ##directives WHERE type={escape {args.type}} AND s_value={escape {args.value}}`)

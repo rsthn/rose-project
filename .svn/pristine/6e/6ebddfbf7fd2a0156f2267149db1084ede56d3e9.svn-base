@@ -1,0 +1,22 @@
+required:true			=	Required field, don't leave blank.
+
+pattern:name			=	Please remove not allowed characters.
+pattern:email			=	Email address is not valid.
+pattern:identifier		=	Only letters, numbers, underscore, dot and dash allowed.
+
+requires:npassword		=	Pick a new valid password first.
+
+min-length:4			=	Four (4) characters minimum.
+min-length:8			=	Eight (8) characters minimum.
+
+check:email_alr			=	Email already registered.
+check:username_alr		=	Username already exists.
+check:name_alr			=	Name already exists.
+check:rpassword			=	Passwords don't match.
+check:email_nf			=	Email address is not registered.
+
+err_credentials			=	Username or password is incorrect.
+err_authorization		=	You're not authorized to access this system. Please contact the administrator.
+
+msg_password_saved		=	Your password has been changed.
+msg_data_saved			=	Your account details have been updated.

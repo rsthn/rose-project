@@ -1,0 +1,25 @@
+(sentinel::privilege-required admin)
+
+(shield::validate
+	(shield::field id
+		required: true
+		pattern: integer
+	)
+)
+
+(return (db::table `
+	SELECT
+		x.user_id as id,
+		x.created,
+		x.is_authorized,
+		x.username,
+		x.name,
+		GROUP_CONCAT(p.privilege_id) as privileges,
+		GROUP_CONCAT(p.name) as s_privileges
+
+	FROM ##users x
+	LEFT JOIN ##user_privileges upr ON upr.user_id=x.user_id
+	LEFT JOIN ##privileges p ON p.privilege_id=upr.privilege_id
+	WHERE x.user_id={id}
+	GROUP BY x.user_id
+`))

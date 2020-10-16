@@ -1,0 +1,203 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d5b0ab9732bd7ea95dd8587640586880",
+    "packages": [
+        {
+            "name": "rsthn/rose-core",
+            "version": "3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rsthn/rose-core.git",
+                "reference": "f05ff9f61a8fdedf4c4141a57b41ae1e2da5ac72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rsthn/rose-core/zipball/f05ff9f61a8fdedf4c4141a57b41ae1e2da5ac72",
+                "reference": "f05ff9f61a8fdedf4c4141a57b41ae1e2da5ac72",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rose\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Palencia",
+                    "email": "strikeone88@rsthn.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Rose Framework - Core",
+            "homepage": "https://github.com/rsthn/rose-core",
+            "time": "2020-05-25T21:13:18+00:00"
+        },
+        {
+            "name": "rsthn/rose-ext-sentinel",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rsthn/rose-ext-sentinel.git",
+                "reference": "6783e1bf8f17e8511f571bd117f30dca206e9a4a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rsthn/rose-ext-sentinel/zipball/6783e1bf8f17e8511f571bd117f30dca206e9a4a",
+                "reference": "6783e1bf8f17e8511f571bd117f30dca206e9a4a",
+                "shasum": ""
+            },
+            "require": {
+                "rsthn/rose-extension-installer": "*"
+            },
+            "type": "rose-extension",
+            "extra": {
+                "rose-ext-identifier": "Sentinel"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Palencia",
+                    "email": "strikeone88@rsthn.com"
+                }
+            ],
+            "description": "Sentinel Authentication (Wind)",
+            "time": "2020-05-28T20:27:55+00:00"
+        },
+        {
+            "name": "rsthn/rose-ext-shield",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rsthn/rose-ext-shield.git",
+                "reference": "ee8c5a68ef4299175b9ac9e1cc467363670d127e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rsthn/rose-ext-shield/zipball/ee8c5a68ef4299175b9ac9e1cc467363670d127e",
+                "reference": "ee8c5a68ef4299175b9ac9e1cc467363670d127e",
+                "shasum": ""
+            },
+            "require": {
+                "rsthn/rose-extension-installer": "*"
+            },
+            "type": "rose-extension",
+            "extra": {
+                "rose-ext-identifier": "Shield"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Palencia",
+                    "email": "strikeone88@rsthn.com"
+                }
+            ],
+            "description": "Shield Validation Extension",
+            "time": "2020-05-28T20:29:32+00:00"
+        },
+        {
+            "name": "rsthn/rose-ext-wind",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rsthn/rose-ext-wind.git",
+                "reference": "626688ce6253ad0aa925cd0fcdca0d05bed38013"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rsthn/rose-ext-wind/zipball/626688ce6253ad0aa925cd0fcdca0d05bed38013",
+                "reference": "626688ce6253ad0aa925cd0fcdca0d05bed38013",
+                "shasum": ""
+            },
+            "require": {
+                "rsthn/rose-extension-installer": "*"
+            },
+            "type": "rose-extension",
+            "extra": {
+                "rose-ext-identifier": "Wind"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Palencia",
+                    "email": "strikeone88@rsthn.com"
+                }
+            ],
+            "description": "Wind Web-Service Extension",
+            "time": "2020-05-25T21:29:43+00:00"
+        },
+        {
+            "name": "rsthn/rose-extension-installer",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rsthn/rose-extension-installer.git",
+                "reference": "0c8bbadfb15d939a775427a40b6f7aac40f19717"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rsthn/rose-extension-installer/zipball/0c8bbadfb15d939a775427a40b6f7aac40f19717",
+                "reference": "0c8bbadfb15d939a775427a40b6f7aac40f19717",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Rose\\Composer\\ExtensionInstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rose\\Composer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Palencia",
+                    "email": "strikeone88@rsthn.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Rose Framework - Extension Installer",
+            "homepage": "https://github.com/rsthn/rose-extension-installer",
+            "time": "2020-05-14T05:46:19+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

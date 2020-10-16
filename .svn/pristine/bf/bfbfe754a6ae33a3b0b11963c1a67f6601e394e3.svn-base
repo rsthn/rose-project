@@ -1,0 +1,48 @@
+(sentinel::privilege-required admin)
+
+(shield::validate form
+
+	(shield::field created
+		set: (datetime::now)
+	)
+
+	(shield::field username
+		required: true
+		pattern: identifier
+		min-length: 4
+		check:username: (isnull (db::scalar `SELECT user_id FROM ##users WHERE username={escape {formData.username}}`))
+	)
+
+	(shield::field password
+		required: true
+		min-length: 8
+		set: (sentinel::password (formData.password))
+	)
+
+	(shield::field name
+		required: true
+		pattern: name
+		min-length: 4
+	)
+
+	(shield::field email
+		required: false
+		pattern: email
+	)
+
+	(shield::field is_authorized
+		required: false
+		pattern: bit
+	)
+)
+
+(db::insert ##users (form))
+
+(set Request.id (db::lastInsertId))
+
+(call 'user_privileges.set')
+
+(&
+	response (int 200)
+	id (Request.id)
+)

@@ -1,0 +1,17 @@
+(sentinel::privilege-required admin)
+
+(call '@filters')
+
+(return (&
+	count: (int (db::scalar `
+		SELECT
+			COUNT(*)
+
+		FROM ##users x
+		LEFT JOIN ##user_privileges upr ON upr.user_id=x.user_id
+		LEFT JOIN ##privileges p ON p.privilege_id=upr.privilege_id
+		{call 'lib.directives.join' user_id: 'x.user_id' type: 'last_login_0'}
+
+		WHERE is_active=1 {filters}
+	`))
+))

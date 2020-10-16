@@ -1,0 +1,10 @@
+required:true			=	Required field, do not leave blank.
+pattern:name			=	Invalid name specified.
+min-length:4			=	Four (4) characters minimum.
+
+check:username			=	Username already exists.
+check:name				=	Name already exists.
+
+authentication			=	Invalid username or password.
+password_saved			=	password_saved
+data_saved				=	data_saved

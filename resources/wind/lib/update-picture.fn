@@ -1,0 +1,23 @@
+(if (not (contains (args) table field id condition width height))
+	(error 'Missing parameters: (err)'))
+
+(shield::validate formb
+	(shield::field (args.field)
+		output: picture
+		required: false
+		file-type:image: png,jpg
+		max-file-size:8m: 8388608
+		set: (image::load (formData._selfValue.path))
+	)
+)
+
+(if (isnotnull (formb.picture)) (@
+	(set x (db::row `SELECT {args.field} as picture FROM ##{args.table} WHERE {args.condition}`))
+
+	(if (isnotnull (x.picture)) (file::remove (x.picture)))
+
+	(set target 'storage/(args.table)/(args.id)_(math::rand).jpg')
+	(file::write (target) (image::data (image::smartcut (formb.picture) (args.width) (args.height) 0 0 true) jpg))
+
+	(db::exec `UPDATE ##{args.table} SET {args.field}={escape {target}} WHERE {args.condition}`)
+))

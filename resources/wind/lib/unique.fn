@@ -1,0 +1,10 @@
+
+(return (join '' (#
+	(substr 2 ((datetime::now).year))
+	((datetime::now).month)
+	((datetime::now).day)
+	'-'
+	(call lib.randn n: 3)
+	'-'
+	(call lib.randn n: 4)
+)))

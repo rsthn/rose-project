@@ -1,0 +1,34 @@
+(sentinel::auth-required)
+
+(shield::validate
+
+	(shield::field cpassword
+		required: true
+		min-length: 8
+		set: (sentinel::password (formData.cpassword))
+		check:cpassword: (eq (formData.cpassword) (session.user.password))
+	)
+
+	(shield::field npassword
+		required: true
+		min-length: 8
+		set: (sentinel::password (formData.npassword))
+	)
+
+	(shield::field rpassword
+		requires: npassword
+		required: true
+		min-length: 8
+		set: (sentinel::password (formData.rpassword))
+		check:rpassword: (eq (formData.rpassword) (formData.npassword))
+	)
+)
+
+(db::exec `UPDATE ##users SET password={escape {npassword}} WHERE user_id={session.user.user_id}`)
+
+(sentinel::reload)
+
+(&
+	response: (int 200)
+	message: (strings.@messages.msg_password_saved)
+)

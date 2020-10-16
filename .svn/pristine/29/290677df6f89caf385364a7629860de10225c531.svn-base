@@ -1,0 +1,12 @@
+(sentinel::privilege-required admin)
+
+(shield::validate
+	(shield::field id
+		required: true
+		pattern: integer
+	)
+)
+
+(db::exec `DELETE FROM ##users WHERE user_id={id}`)
+
+(&)

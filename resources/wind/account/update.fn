@@ -28,5 +28,5 @@
 (&
 	response: (int 200)
 	message: (strings.@messages.msg_data_saved)
-	data: ((call 'account.get').data)
+	data: (call account.get)
 )

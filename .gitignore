@@ -1,7 +1,6 @@
 --*
-vendor/
-node_modules/
-.svn/
+vendor
+.git
+*.log
 *.tmp
-.cache/
-.wind.cache/
+composer.lock

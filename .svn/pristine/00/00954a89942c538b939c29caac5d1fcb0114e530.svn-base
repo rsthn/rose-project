@@ -1,0 +1,18 @@
+(shield::validate
+	(shield::field token
+		required: true
+		pattern: uuid
+	)
+)
+
+(set user_id (call 'lib.directives.user_id' type: 'user_not_verified' value: (token)))
+
+(content-type 'text/html')
+
+(if (isnull (this.user_id))
+	(return (expand (strings.@page_err_token))))
+
+(call 'lib.directives.delete' user_id: (user_id) type: 'user_not_verified')
+(call 'lib.directives.string' user_id: (user_id) type: 'user_verified' value: 'true')
+
+(return (expand (strings.@page_account_confirmed))))

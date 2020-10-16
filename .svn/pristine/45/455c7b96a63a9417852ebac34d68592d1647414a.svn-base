@@ -1,0 +1,64 @@
+
+(shield::validate tmp
+	(shield::field term
+		required: false
+		pattern: name
+		set: `{escape '%{formData.term}%'}`
+		set: `AND (x.name LIKE {formData.term} OR x.username LIKE {formData.term})`
+	)
+
+	(shield::field f_privilege_id
+		required: false
+		pattern: integer
+		set: `AND p.privilege_id={formData.f_privilege_id}`
+	)
+
+	(shield::field f_login_start_date
+		required: false
+		pattern: date
+		set: `AND DATE(last_login_0.s_value) >= '{formData.f_login_start_date}'`
+	)
+
+	(shield::field f_login_end_date
+		required: false
+		pattern: date
+		set: `AND DATE(last_login_0.s_value) <= '{formData.f_login_end_date}'`
+	)
+
+	(shield::field f_created_start_date
+		required: false
+		pattern: date
+		set: `AND DATE(x.created) >= '{formData.f_created_start_date}'`
+	)
+
+	(shield::field f_created_end_date
+		required: false
+		pattern: date
+		set: `AND DATE(x.created) <= '{formData.f_created_end_date}'`
+	)
+)
+
+(shield::validate
+	(shield::field sort
+		default: created
+		pattern: `/^(created|last_login_0|username)$/`
+	)
+
+	(shield::field order
+		default: desc
+		pattern: `/^(asc|desc)$/`
+	)
+
+	(shield::field offset
+		default: 0
+		pattern: integer
+	)
+
+	(shield::field count
+		default: 25
+		pattern: integer
+		max-value: 100
+	)
+)
+
+(set filters (join ' ' (values (tmp))))

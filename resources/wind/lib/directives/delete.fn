@@ -1,4 +1,4 @@
-(? (not (has (args) user_id type))
+(? (not (contains (args) user_id type))
 	(error `Parameter missing: {err}`))
 
 (db::exec `

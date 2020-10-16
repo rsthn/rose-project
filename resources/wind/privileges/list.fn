@@ -9,6 +9,6 @@
 	ORDER BY p.privilege_id DESC
 `))
 
-(each i (list) (set i.name (Strings.@enum.privileges.(i.name))))
+(each i (list) (set i.name (strings.@enum.privileges.(i.name))))
 
 (return (list))

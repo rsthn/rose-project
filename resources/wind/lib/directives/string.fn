@@ -1,7 +1,7 @@
-(? (not (has (args) user_id type))
+(? (not (contains (args) user_id type))
 	(error `Parameter missing: {err}`))
 
-(? (has (args) value)
+(? (has value (args))
 	(db::exec `
 		INSERT INTO ##directives SET
 			modified='{datetime::now}', user_id={int {args.user_id}}, type={escape {args.type}}, s_value={escape {args.value}}

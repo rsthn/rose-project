@@ -1,0 +1,6 @@
+(? (not (has (args) user_id type))
+	(error `Parameter missing: {err}`))
+
+(db::exec `
+	DELETE FROM ##directives WHERE user_id={int {args.user_id}} AND type={escape {args.type}}
+`)

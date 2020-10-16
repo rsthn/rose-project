@@ -1,0 +1,6 @@
+(if (not (contains (args) n))
+	(error 'Missing parameters: (err)'))
+
+(join '' (repeat i count (args.n)
+	(mod (math::rand) 10)
+))

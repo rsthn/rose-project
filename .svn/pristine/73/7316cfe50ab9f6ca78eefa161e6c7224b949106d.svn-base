@@ -1,0 +1,4 @@
+(? (not (has (args) user_id type))
+	(error `Parameter missing: {err}`))
+
+(return `LEFT JOIN ##directives {args.type} ON {args.type}.user_id={args.user_id} AND {args.type}.type='{args.type}'`)
