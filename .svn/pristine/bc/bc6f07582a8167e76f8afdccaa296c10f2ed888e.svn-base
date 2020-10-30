@@ -1,9 +1,0 @@
-(sentinel::privilege-required admin)
-
-(return (db::table `
-	SELECT
-		p.privilege_id as id,
-		p.name
-
-	FROM ##privileges p
-`))

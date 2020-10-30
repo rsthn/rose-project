@@ -1,4 +1,0 @@
-- Fields created and last_login_0 (users) are now formated as local datetime before returning them
-- Added 'email' field to users.update function.
-- Added Router dependency and related folders.
-- Published: v1.0.6

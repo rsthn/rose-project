@@ -1,6 +1,6 @@
 /* ******************************************************************************************* */
 DROP TABLE IF EXISTS x_directives;
-
+DROP TABLE IF EXISTS x_sessions;
 DROP TABLE IF EXISTS x_user_privileges;
 DROP TABLE IF EXISTS x_privileges;
 DROP TABLE IF EXISTS x_users;
@@ -15,8 +15,10 @@ CREATE TABLE x_users
     is_authorized tinyint not null default 1,
     is_active tinyint not null default 1,
 
-    username varchar(128) not null unique key collate utf8mb4_bin,
+    username varchar(256) not null,
     password char(96) not null collate utf8mb4_bin,
+
+	photo varchar(128) default null,
 
 	name varchar(128) default '',
 	email varchar(128) default ''
@@ -47,6 +49,20 @@ ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
 /* ******************************************************************************************* */
+CREATE TABLE x_sessions
+(
+	session_id char(48) primary key unique not null,
+	last_activity datetime default null,
+
+	user_id int unsigned default null,
+	constraint foreign key (user_id) references x_users (user_id) on delete cascade,
+
+	data varbinary(4096) default null
+)
+ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+/* ******************************************************************************************* */
 INSERT INTO x_privileges (privilege_id, name) VALUES
 	(777, 'admin');
 
@@ -70,6 +86,7 @@ CREATE TABLE x_directives
 	modified datetime,
 
 	s_value varchar(256) default '',
-	i_value int default 0
+	i_value int default 0,
+	t_value text default null
 )
 ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1;
