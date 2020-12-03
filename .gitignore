@@ -1,7 +1,0 @@
---*
-vendor
-.svn
-.git
-*.log
-*.tmp
-composer.lock
