@@ -7,6 +7,25 @@ DROP TABLE IF EXISTS x_users;
 
 
 /* ******************************************************************************************* */
+CREATE TABLE x_directives
+(
+	subject_id int unsigned not null default 0,
+	type varchar(128) not null, /* verification_code */
+
+	modified datetime,
+
+	s_value varchar(256) default '',
+	i_value int default 0,
+	t_value text default null
+)
+ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1;
+
+ALTER TABLE x_directives ADD PRIMARY KEY pk (subject_id, type);
+ALTER TABLE x_directives ADD INDEX n_type (type);
+ALTER TABLE x_directives ADD INDEX n_s_value (s_value);
+
+
+/* ******************************************************************************************* */
 CREATE TABLE x_users
 (
     user_id int unsigned primary key auto_increment,
@@ -51,42 +70,22 @@ ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /* ******************************************************************************************* */
 CREATE TABLE x_sessions
 (
-	session_id char(48) primary key unique not null,
+	session_id varchar(48) primary key unique not null,
+
+	created datetime default null,
 	last_activity datetime default null,
 
-	user_id int unsigned default null,
-	constraint foreign key (user_id) references x_users (user_id) on delete cascade,
+	device_id varchar(48) default null,
 
-	data varbinary(4096) default null
+	user_id int unsigned default null,
+	constraint foreign key (user_id) references users (user_id) on delete cascade,
+
+	data varchar(8192) default null
 )
 ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
 /* ******************************************************************************************* */
-INSERT INTO x_privileges (privilege_id, name) VALUES
-	(777, 'admin');
-
-INSERT INTO x_users (user_id, created, username, password, name) VALUES
-	(1, NOW(), 'admin', SHA2('p3rF1!admin2020s51X%', 384), 'Administrator');
-
+INSERT INTO x_privileges (privilege_id, name) VALUES (777, 'admin');
+INSERT INTO x_users (user_id, created, username, password, name) VALUES (1, NOW(), 'admin', SHA2('p3rF1!admin2020s51X%', 384), 'Administrator');
 INSERT INTO x_user_privileges(user_id, privilege_id) VALUES (1, 777);
-
-
-/* ******************************************************************************************* */
-CREATE TABLE x_directives
-(
-	user_id int unsigned not null,
-	constraint foreign key (user_id) references users (user_id) on delete cascade,
-
-	type varchar(64) not null, /* user_not_verified, user_blocked, auth_attempts, auth_new_password_token, auth_new_password, latest_login, last_login */
-	index n_type (type),
-
-	primary key (type, user_id),
-
-	modified datetime,
-
-	s_value varchar(256) default '',
-	i_value int default 0,
-	t_value text default null
-)
-ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1;

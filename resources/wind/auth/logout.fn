@@ -1,3 +1,4 @@
-(sentinel::logout)
+(sentinel::auth-required)
+
 (session::destroy)
 (&)

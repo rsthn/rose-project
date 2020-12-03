@@ -1,7 +1,7 @@
 Options -Indexes
 
-RewriteEngine On
-RewriteBase /ciachn/
+#RewriteEngine On
+#RewriteBase /
 
 #RewriteCond %{SERVER_PORT} 80
 #RewriteRule ^(.*)$ https://host/$1 [R,L]

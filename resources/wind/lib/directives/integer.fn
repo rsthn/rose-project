@@ -1,13 +1,13 @@
-(? (not (contains (args) user_id type))
+(? (not (contains (args) subject_id type))
 	(error `Parameter missing: {err}`))
 
 (? (has value (args))
 	(db::exec `
 		INSERT INTO ##directives SET
-			modified='{datetime::now}', user_id={int {args.user_id}}, type={escape {args.type}}, i_value={escape {args.value}}
+			modified='{datetime::now}', subject_id={escape {args.subject_id}}, type={escape {args.type}}, i_value={escape {args.value}}
 		ON DUPLICATE KEY UPDATE
 			modified='{datetime::now}', i_value={escape {args.value}}
 	`)
 
-	(db::scalar `SELECT i_value FROM ##directives WHERE user_id={int {args.user_id}} AND type={escape {args.type}}`)
+	(db::scalar `SELECT i_value FROM ##directives WHERE subject_id={escape {args.subject_id}} AND type={escape {args.type}}`)
 )
