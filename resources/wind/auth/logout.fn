@@ -1,4 +1,0 @@
-(sentinel::auth-required)
-
-(session::destroy)
-(&)

@@ -44,6 +44,9 @@ CREATE TABLE x_users
 )
 ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1;
 
+ALTER TABLE x_users ADD index n_username (username);
+ALTER TABLE x_users ADD index n_is_active (is_active);
+
 
 CREATE TABLE x_privileges
 (
@@ -66,6 +69,20 @@ CREATE TABLE x_user_privileges
 )
 ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+CREATE TABLE x_tokens
+(
+	token varchar(128) primary key,
+	user_id int unsigned not null,
+
+	is_authorized tinyint not null default 1,
+	is_active tinyint not null default 1,
+
+	constraint foreign key (user_id) references x_users (user_id) on delete cascade
+)
+ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1;
+
+ALTER TABLE x_tokens ADD index n_is_active (is_active);
+
 
 /* ******************************************************************************************* */
 CREATE TABLE x_sessions
@@ -85,7 +102,16 @@ CREATE TABLE x_sessions
 ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
-/* ******************************************************************************************* */
-INSERT INTO x_privileges (privilege_id, name) VALUES (777, 'admin');
-INSERT INTO x_users (user_id, created, username, password, name) VALUES (1, NOW(), 'admin', SHA2('p3rF1!admin2020s51X%', 384), 'Administrator');
-INSERT INTO x_user_privileges(user_id, privilege_id) VALUES (1, 777);
+DROP PROCEDURE IF EXISTS x_session_cleanup;
+DELIMITER //
+CREATE PROCEDURE x_session_cleanup (timeout INT UNSIGNED)
+BEGIN
+	DELETE FROM x_sessions
+	WHERE TIMESTAMPDIFF(SECOND, last_activity, NOW()) >= timeout;
+END //
+DELIMITER ;
+
+DROP EVENT IF EXISTS x_session_cleanup_evt;
+CREATE EVENT x_session_cleanup_evt
+ON SCHEDULE EVERY 1 DAY
+DO CALL x_session_cleanup (86400);

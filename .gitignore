@@ -1,7 +1,8 @@
 --*
-vendor
+vendor/
 .svn
 .git
 *.log
 *.tmp
-composer.lock
+volatile/
+deploy.js

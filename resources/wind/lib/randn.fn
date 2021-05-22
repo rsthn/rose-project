@@ -1,6 +1,0 @@
-(if (not (contains (args) length))
-	(error 'Missing parameters: (err)'))
-
-(join '' (repeat i count (args.@length)
-	(mod (math::rand) 10)
-))

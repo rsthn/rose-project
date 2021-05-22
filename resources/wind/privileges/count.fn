@@ -1,5 +1,0 @@
-(sentinel::privilege-required admin)
-
-(return (&
-	count: (int (db::scalar `SELECT COUNT(*) FROM ##privileges`))
-))
