@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5c8ed9e85e080314dbc1ace6a2bec7e",
+    "content-hash": "4a7b1570134dfbad73ac0bb261e55688",
     "packages": [
         {
             "name": "rsthn/rose-core",
-            "version": "3.1.20",
+            "version": "3.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rsthn/rose-core.git",
-                "reference": "8d8cf0fb03f2f2c3a0ab654f9fa53935b773612c"
+                "reference": "803fa49308e50c606235971220cae83610c351e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rsthn/rose-core/zipball/8d8cf0fb03f2f2c3a0ab654f9fa53935b773612c",
-                "reference": "8d8cf0fb03f2f2c3a0ab654f9fa53935b773612c",
+                "url": "https://api.github.com/repos/rsthn/rose-core/zipball/803fa49308e50c606235971220cae83610c351e5",
+                "reference": "803fa49308e50c606235971220cae83610c351e5",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             "homepage": "https://github.com/rsthn/rose-core",
             "support": {
                 "issues": "https://github.com/rsthn/rose-core/issues",
-                "source": "https://github.com/rsthn/rose-core/tree/v3.1.20"
+                "source": "https://github.com/rsthn/rose-core/tree/v3.1.21"
             },
-            "time": "2021-05-22T20:27:18+00:00"
+            "time": "2021-06-26T22:24:31+00:00"
         },
         {
             "name": "rsthn/rose-ext-router",
@@ -223,16 +223,16 @@
         },
         {
             "name": "rsthn/rose-extension-installer",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rsthn/rose-extension-installer.git",
-                "reference": "86bc97797284269d8595d0c90bc19c5df7a94b02"
+                "reference": "ba9fe385a83264416458ce753b8d45763219c297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rsthn/rose-extension-installer/zipball/86bc97797284269d8595d0c90bc19c5df7a94b02",
-                "reference": "86bc97797284269d8595d0c90bc19c5df7a94b02",
+                "url": "https://api.github.com/repos/rsthn/rose-extension-installer/zipball/ba9fe385a83264416458ce753b8d45763219c297",
+                "reference": "ba9fe385a83264416458ce753b8d45763219c297",
                 "shasum": ""
             },
             "require": {
@@ -265,9 +265,9 @@
             "homepage": "https://github.com/rsthn/rose-extension-installer",
             "support": {
                 "issues": "https://github.com/rsthn/rose-extension-installer/issues",
-                "source": "https://github.com/rsthn/rose-extension-installer/tree/v1.0.9"
+                "source": "https://github.com/rsthn/rose-extension-installer/tree/v1.0.10"
             },
-            "time": "2021-02-24T23:28:24+00:00"
+            "time": "2021-06-26T22:25:33+00:00"
         }
     ],
     "packages-dev": [],
