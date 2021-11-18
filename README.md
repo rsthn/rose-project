@@ -1,4 +1,4 @@
-# Rose Framework - Project Skeleton
+# Rose Project Skeleton
 
 # Configuration
 
