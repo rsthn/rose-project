@@ -9,3 +9,7 @@ Options -Indexes
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+<Files ~ "\.(conf|ini|plain|sql|log)$|^\.">
+	require all denied
+</Files>
