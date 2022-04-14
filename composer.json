@@ -2,7 +2,7 @@
     "name": "rsthn/rose-project",
     "description": "Rose Project Skeleton",
     "homepage": "https://github.com/rsthn/rose-project",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "type": "project",
     "license": "Apache-2.0",
     "authors": [
@@ -18,5 +18,10 @@
         "rsthn/rose-ext-sentinel": "^1.0",
         "rsthn/rose-ext-shield": "^1.0",
         "rsthn/rose-ext-router": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "rsthn/rose-extension-installer": true
+        }
     }
 }
