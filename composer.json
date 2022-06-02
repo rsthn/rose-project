@@ -2,7 +2,7 @@
     "name": "rsthn/rose-project",
     "description": "Rose Project Skeleton",
     "homepage": "https://github.com/rsthn/rose-project",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "type": "project",
     "license": "Apache-2.0",
     "minimum-stability": "stable",
